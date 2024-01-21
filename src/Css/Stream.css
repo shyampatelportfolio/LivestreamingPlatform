@@ -1,0 +1,245 @@
+.chat-container{
+    position: absolute;
+    bottom: 1.5vh;
+    width: 19vw;
+    height: 50vh;
+    overflow: scroll;
+    backdrop-filter: blur(0px);
+}
+.chat-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    border: 2px solid white;
+    opacity: 0;
+    transition: all 1s;
+}
+.chat-wrapper:hover .chat-overlay{
+    opacity: 1;
+}
+.chat-carousel{
+    width: 100%;
+    --transition-time: 1s;
+    position: absolute;
+    transition: all var(--transition-time);
+    /* bottom: 0px;   */
+    transform: translateY(0px);
+    /* border: 1px solid red; */
+}
+.chat-message{
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 13px;
+    padding-bottom: 2px;
+    width: 100%;
+    overflow-wrap: break-word;
+    white-space: pre;
+    /* border: 1px solid cyan; */
+}
+.chat-wrapper{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: 20;
+    right: 5vw;
+    top: 24vh;
+    width: 20vw;
+    backdrop-filter: blur(3px);
+    border-bottom: 2px solid rgb(84, 84, 255);
+    animation: borderpulse 0.5s alternate infinite;
+    height: 60vh;
+}
+
+.chat-drag-container{
+    position: absolute;
+    bottom: -5vh;
+    cursor: pointer;
+    height: 4vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.chat-drag-container img{
+    object-fit: contain;
+    transform: rotate(90Deg);
+}
+
+
+.stream-container{
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    border-bottom: 2px solid white;
+}
+.stream-video-container{
+    position: absolute;
+    top: 5vh;
+    left: 0vw;
+    width: 100vw;
+    height: 75vh;
+    opacity: 1;
+}
+.stream-video-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.stream-video-item.stream-active{
+    object-fit: contain;
+}
+.stream-input-container{
+    position: absolute;
+    bottom: 12vh;
+    left: 10vw;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: flex-end;
+}
+.stream-input-forchat{
+    background-color: transparent;
+    resize: none; 
+    overflow-y: hidden; 
+    box-sizing: border-box;
+    padding: 0;
+    width: 30vw;
+    line-height: 13px;
+    height: 14px;
+    border: none;
+    border-bottom: 1px solid white;
+}
+.stream-input-forchat::selection{
+    background-color: #ffffff;
+    color: black;
+}
+.stream-input-button{
+    width: 2.5vw;
+    height: 4vh;
+    background-color: rgb(73, 73, 73);
+    background: url('/Svg/Send.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 1vw;
+    margin-bottom: 0vh;
+    cursor: pointer;
+}
+
+
+.stream-video-hover-box{
+    position: absolute;
+    z-index: 2;
+    opacity: 1;
+    width: 40%;
+    height: 100%;
+}
+
+
+
+.stream-video-data-details{
+    position: absolute;
+    z-index: 1;
+    padding-left: 10vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100vw;
+    backdrop-filter: blur(3px);
+    background: linear-gradient( to top, rgba(0, 0, 0, 0.6), transparent);
+    transition: opacity 1s;
+    opacity: 0;
+}
+.stream-video-data-details-author{
+    font-size: 16px;
+    font-weight: 200;
+    padding-bottom: 2vh;
+}
+.stream-video-data-details-title{
+    font-size: 80px;
+    line-height: 90px;
+    font-weight: 700;
+    width: 50vw;
+}
+.stream-video-data-details-description{
+    font-size: 11px;
+    width: 27vw;
+    padding-top: 4vh;
+}
+.stream-video-data-details-information{
+    display: flex;
+    padding-top: 1vh;
+    gap: 1vw;
+}
+.stream-video-data-details-live-container{
+    background-color: rgba(0, 0, 0, 0.3);
+    width: max-content;
+    padding: 0.5vw 1.5vw 0.5vw 1.5vw;
+    border-radius: 2vh;
+    backdrop-filter: blur(3px);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    border: 1px solid red;
+    animation: borderPulseRed 0.5s infinite alternate linear;
+}
+.stream-video-data-details-live-circle{
+    width: 1vh;
+    height: 1vh;
+    background-color: red;
+    border-radius: 50%;
+}
+.stream-video-data-details-viewers-container{
+    background-color: rgba(0, 0, 0, 0.3);
+    width: max-content;
+    padding: 0.5vw 1.5vw 0.5vw 1.5vw;
+    border-radius: 2vh;
+    backdrop-filter: blur(3px);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+}
+.stream-video-data-details-viewers-circle{
+    width: 1vh;
+    height: 1vh;
+    background-color: red;
+    border-radius: 50%;
+}
+
+
+
+.stream-video-data-details-offline-container{
+    background-color: rgba(0, 0, 0, 0.3);
+    width: max-content;
+    padding: 0.5vw 1.5vw 0.5vw 1.5vw;
+    border-radius: 2vh;
+    backdrop-filter: blur(3px);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    border: 1px solid rgb(255, 255, 255);
+}
+.stream-video-data-details-viewers-container{
+    background-color: rgba(0, 0, 0, 0.3);
+    width: max-content;
+    padding: 0.5vw 1.5vw 0.5vw 1.5vw;
+    border-radius: 2vh;
+    backdrop-filter: blur(3px);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    border: 1px solid rgb(255, 255, 255);
+    animation: borderpulse 1s infinite alternate;
+}
+
+
+
+
+
